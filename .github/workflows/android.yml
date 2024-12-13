@@ -5,6 +5,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,7 +29,7 @@ jobs:
       run: ./gradlew build
 
     - name: Upload APK
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         # 设置压缩文件的名称，在控制台会得到app-debug.zip文件的下载链接
         # 下载后解压缩，里面直接可以看到app-debug.apk，没有其他东西
